@@ -1,0 +1,20 @@
+spring:
+  bot:
+    plugin-list:
+      # [BotPlugin]??[????&????]??
+      - com.akiralumina.project.plugins.BotPlugin_Log # ????
+      # [PrivatePlugin]??[????]??
+
+      # [GroupPlugin]??[????]??
+      - com.akiralumina.project.plugins.GroupPlugin_Greetings # 测试的问候插件
+
+
+server:
+  # lorca launcher use this port to connect bot , DO NOT CHANGE IT !
+  port: 8081
+
+logging:
+  file:
+    name: logs/luminabot-terminus.log
+
+
