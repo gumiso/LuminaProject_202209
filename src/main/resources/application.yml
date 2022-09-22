@@ -4,9 +4,11 @@ spring:
       # [BotPlugin]??[????&????]??
       - com.akiralumina.project.plugins.BotPlugin_Log # ????
       # [PrivatePlugin]??[????]??
-
+      - com.akiralumina.project.plugins.PrivatePlugin_Greetings
       # [GroupPlugin]??[????]??
       - com.akiralumina.project.plugins.GroupPlugin_Greetings # 测试的问候插件
+      - com.akiralumina.project.plugins.GroupPlugin_GroupManage
+      - com.akiralumina.project.plugins.GroupPlugin_MuseWar
 
 
 server:
