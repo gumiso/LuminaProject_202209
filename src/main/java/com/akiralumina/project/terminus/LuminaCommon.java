@@ -7,7 +7,16 @@ import java.util.List;
 
 public class LuminaCommon {
 
+    static List<Long> adminListUserID = new ArrayList<>();
     static List<Long> allowListGroupID = new ArrayList<>();
+
+    public static boolean isGrantedUser(long presentUserID) {
+
+        adminListUserID.add(2792556795L);
+
+        return allowListGroupID.contains(presentUserID);
+
+    }
 
     public static boolean inGroupAllowList(long presentGroupID) {
 

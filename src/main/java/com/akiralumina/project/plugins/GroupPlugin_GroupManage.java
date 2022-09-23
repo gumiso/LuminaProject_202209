@@ -38,27 +38,20 @@ public class GroupPlugin_GroupManage extends BotPlugin {
 
         if(LuminaCommon.inGroupAllowList(event.getGroupId())) {
             boolean isKeywordPresent0 = event.getRawMessage().contains("禁言启动");
-            boolean isKeywordPresent1 = event.getRawMessage().contains("测试");
+            boolean isKeywordPresent1 = event.getRawMessage().contains("天罚模式");
             boolean isAtLuminaPresent = event.getRawMessage().contains("@LuminaBot") || event.getRawMessage().contains("<at qq=\"" + bot.getSelfId() + "\"/>");
+
+            String timeRegex = "\\d";
 
             if(isKeywordPresent0 && isAtLuminaPresent) {
                 bot.setGroupBan(event.getGroupId(), event.getUserId(), 60);
             }
 
-
             if(isKeywordPresent1 && isAtLuminaPresent) {
-//            bot.sendGroupPoke(event.getGroupId(), event.getUserId());
 
-                if(event.getMessageId() != null) {
-                    System.out.println("event.getMessageId() 不为空");
-                    Msg msg0 = Msg.builder().text("测试1");
-                    bot.sendGroupMsg(event.getGroupId(), msg0, false);
-                    Msg msg1 = Msg.builder().reply(event.getMessageId()).text("测试2");
-                    bot.sendGroupMsg(event.getGroupId(), msg1, false);
-                } else {
-                    System.out.println("event.getMessageId() 为空");
-                }
             }
+
+
         } else {
             log.info("GroupPlugin_GroupManage 当前群["+event.getGroupId()+"]未获取允许权限");
         }
