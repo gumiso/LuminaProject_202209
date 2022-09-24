@@ -37,19 +37,20 @@ public class GroupPlugin_GroupManage extends BotPlugin {
     public int onGroupMessage(@NotNull Bot bot, @NotNull OnebotEvent.GroupMessageEvent event) {
 
         if(LuminaCommon.inGroupAllowList(event.getGroupId())) {
-            boolean isKeywordPresent0 = event.getRawMessage().contains("禁言启动");
-            boolean isKeywordPresent1 = event.getRawMessage().contains("天罚模式");
-            boolean isAtLuminaPresent = event.getRawMessage().contains("@LuminaBot") || event.getRawMessage().contains("<at qq=\"" + bot.getSelfId() + "\"/>");
-
-            String timeRegex = "\\d";
-
-            if(isKeywordPresent0 && isAtLuminaPresent) {
-                bot.setGroupBan(event.getGroupId(), event.getUserId(), 60);
-            }
-
-            if(isKeywordPresent1 && isAtLuminaPresent) {
-
-            }
+//            boolean isKeywordPresent0 = event.getRawMessage().contains("禁言启动");
+//            boolean isKeywordPresent1 = event.getRawMessage().contains("天罚模式");
+//            boolean isAtLuminaPresent = event.getRawMessage().contains("@LuminaBot") || event.getRawMessage().contains("<at qq=\"" + bot.getSelfId() + "\"/>");
+//
+//            String timeRegex = "\\d";
+//
+//            if(isKeywordPresent0 && isAtLuminaPresent) {
+//                bot.setGroupBan(event.getGroupId(), event.getUserId(), 60);
+//            }
+//
+//            if(isKeywordPresent1 && isAtLuminaPresent) {
+//
+//            }
+            //  在此调用单独方法，不写逻辑
 
 
         } else {

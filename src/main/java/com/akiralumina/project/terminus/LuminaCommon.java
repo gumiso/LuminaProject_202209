@@ -7,8 +7,9 @@ import java.util.List;
 
 public class LuminaCommon {
 
-    static List<Long> adminListUserID = new ArrayList<>();
-    static List<Long> allowListGroupID = new ArrayList<>();
+    public static int LUMINA_DEFAULT_BAN_SECONDS = 60;
+    public static List<Long> adminListUserID = new ArrayList<>();
+    public static List<Long> allowListGroupID = new ArrayList<>();
 
     public static boolean isGrantedUser(long presentUserID) {
 

@@ -26,15 +26,15 @@ public class PatternTest2 {
         String str5 = "<at qq=469803465> 禁言60秒";
         String str6 = "<at qq=469803465> 禁言60秒";
 
-        String timeRegexS = "(禁言(\\d*)秒)";
-        String timeRegexM = "(禁言(\\d*)分钟)";
-        String timeRegexH = "(禁言(\\d*)小时)";
-        String countRegex = "\\d{1,6}";
-
-        Pattern patternS = Pattern.compile(timeRegexS);
-        Pattern patternM = Pattern.compile(timeRegexM);
-        Pattern patternH = Pattern.compile(timeRegexH);
-        Pattern patternC = Pattern.compile(countRegex);
+//        String timeRegexS = "(禁言(\\d*)秒)";
+//        String timeRegexM = "(禁言(\\d*)分钟)";
+//        String timeRegexH = "(禁言(\\d*)小时)";
+//        String countRegex = "\\d{1,6}";
+//
+//        Pattern patternS = Pattern.compile(timeRegexS);
+//        Pattern patternM = Pattern.compile(timeRegexM);
+//        Pattern patternH = Pattern.compile(timeRegexH);
+//        Pattern patternC = Pattern.compile(countRegex);
 
         List<String> sentenceList = new ArrayList<>();
 
@@ -46,28 +46,28 @@ public class PatternTest2 {
         String banSTR = new String();
         String timeSTR = new String();
 
-        Matcher matcherS = patternS.matcher(waitMatchSTR);
-        if(matcherS.find()) {
-            System.out.println("找到秒");
-
-        }
-        Matcher matcherM = patternM.matcher(waitMatchSTR);
-        if(matcherM.find(0)) {
-            System.out.println("找到分钟");
-            banSTR = matcherM.group();      //  BANSTR成为下一次待匹配语句
-            System.out.println(banSTR);
-            Matcher matcherC = patternC.matcher(banSTR);
-//            timeSTR = matcherC.find() ? matcherC.group(): "error";
-            if(matcherC.find()) {
-                timeSTR = matcherC.group();
-            }
-            System.out.println(timeSTR);
-        }
-        Matcher matcherH = patternH.matcher(waitMatchSTR);
-        if(matcherH.find()) {
-            System.out.println("找到小时");
-
-        }
+//        Matcher matcherS = patternS.matcher(waitMatchSTR);
+//        if(matcherS.find()) {
+//            System.out.println("找到秒");
+//
+//        }
+//        Matcher matcherM = patternM.matcher(waitMatchSTR);
+//        if(matcherM.find(0)) {
+//            System.out.println("找到分钟");
+//            banSTR = matcherM.group();      //  BANSTR成为下一次待匹配语句
+//            System.out.println(banSTR);
+//            Matcher matcherC = patternC.matcher(banSTR);
+////            timeSTR = matcherC.find() ? matcherC.group(): "error";
+//            if(matcherC.find()) {
+//                timeSTR = matcherC.group();
+//            }
+//            System.out.println(timeSTR);
+//        }
+//        Matcher matcherH = patternH.matcher(waitMatchSTR);
+//        if(matcherH.find()) {
+//            System.out.println("找到小时");
+//
+//        }
 
 
     }
