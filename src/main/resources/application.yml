@@ -7,8 +7,8 @@ spring:
       - com.akiralumina.project.plugins.PrivatePlugin_Greetings
       # [GroupPlugin]??[????]??
       - com.akiralumina.project.plugins.GroupPlugin_Greetings # 测试的问候插件
-      - com.akiralumina.project.plugins.GroupPlugin_GroupManage
-      - com.akiralumina.project.plugins.GroupPlugin_MuseWar
+      - com.akiralumina.project.plugins.GroupPlugin_BanUser
+      - com.akiralumina.project.plugins.GroupPlugin_BanUserDisable
 
 
 server:

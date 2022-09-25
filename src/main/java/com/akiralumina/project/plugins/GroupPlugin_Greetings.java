@@ -29,6 +29,7 @@ public class GroupPlugin_Greetings extends BotPlugin {
 
             if(event.getRawMessage().contains("greetings")) {
                 bot.sendGroupMsg(event.getGroupId(), "I'm LuminaBot. Greetings !", false);
+                bot.sendGroupMsg(event.getGroupId(), "这则消息发自GroupPlugin_Greetings，该类用于测试露米娜Bot对问候消息的反应，并发出问候", false);
             }
 
             if(event.getRawMessage().contains("date")) {
@@ -36,7 +37,7 @@ public class GroupPlugin_Greetings extends BotPlugin {
             }
 
             if(event.getRawMessage().contains("Bot")) {
-                bot.sendGroupMsg(event.getGroupId(), "LuminaBot Basic Test Functioning...", false);
+                bot.sendGroupMsg(event.getGroupId(), "LuminaBot 基础测试" + "\n" + "第二代露米娜 系统运作中...", false);
             }
         } else {
             log.info("GroupPlugin_Greetings 当前群["+event.getGroupId()+"]未获取允许权限");

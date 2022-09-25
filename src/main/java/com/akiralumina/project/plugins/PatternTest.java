@@ -1,10 +1,5 @@
 package com.akiralumina.project.plugins;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class PatternTest {
 
     public static void main(String[] args) {
@@ -17,17 +12,17 @@ public class PatternTest {
 //        Matcher m = r.matcher(str);
 //        System.out.println(m.matches());
 
-        String pattern2 = "(<at qq=([1-9][0-9]{4,11})>)";
-        Pattern r2 = Pattern.compile(pattern2,Pattern.CASE_INSENSITIVE);
-        Matcher m2 = r2.matcher("<at qq=179223207>,<at qq=469803465>,<at qq=2792556795>" );
-
-        List<String> stringList = new ArrayList<>();
-        while (m2.find()) {
-
-            stringList.add(m2.group());
-
-        }
-        System.out.println(stringList);
+//        String pattern2 = "(<at qq=([1-9][0-9]{4,11})>)";
+//        Pattern r2 = Pattern.compile(pattern2,Pattern.CASE_INSENSITIVE);
+//        Matcher m2 = r2.matcher("<at qq=179223207>,<at qq=469803465>,<at qq=2792556795>" );
+//
+//        List<String> stringList = new ArrayList<>();
+//        while (m2.find()) {
+//
+//            stringList.add(m2.group());
+//
+//        }
+//        System.out.println(stringList);
 
     }
 
