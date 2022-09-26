@@ -50,7 +50,8 @@ public class GroupPlugin_Greetings extends BotPlugin {
     public int onGroupRecallNotice(@NotNull Bot bot, @NotNull OnebotEvent.GroupRecallNoticeEvent event) {
 
         if(LuminaCommon.inGroupAllowList(event.getGroupId())) {
-            bot.sendGroupMsg(event.getGroupId(), "LuminaBot has detected a recall message.", false);
+//            bot.sendGroupMsg(event.getGroupId(), "LuminaBot has detected a recall message.", false);
+            bot.sendGroupMsg(event.getGroupId(), "LuminaBot 侦测到一则已撤回的消息", false);
         } else {
             log.info("GroupPlugin_Greetings 当前群["+event.getGroupId()+"]未获取允许权限");
         }

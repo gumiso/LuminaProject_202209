@@ -24,7 +24,7 @@ public class GroupPlugin_BanUserDisable extends BotPlugin {
         boolean isAtLuminaPresent = event.getRawMessage().contains("@LuminaBot") || event.getRawMessage().contains("<at qq=\"" + bot.getSelfId() + "\"/>");
         boolean containKeyword = event.getRawMessage().contains("净化");
 
-        String patternSTR = "<at qq=\"[1-9][0-9]{4,11}\"/>\\s?\\u51c0\\u5316\\s?<at qq=\"[1-9][0-9]{4,11}\"/>";
+        String patternSTR = "<at qq=\"[1-9][0-9]{4,11}\"/>.?\\u51c0\\u5316.?<at qq=\"[1-9][0-9]{4,11}\"/>";
         Pattern pattern = Pattern.compile(patternSTR);
         Matcher matcher = pattern.matcher(event.getRawMessage());
         boolean findFormat = matcher.find();
