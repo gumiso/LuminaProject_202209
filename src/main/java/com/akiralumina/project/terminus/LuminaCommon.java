@@ -1,7 +1,9 @@
 package com.akiralumina.project.terminus;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class LuminaCommon {
 
@@ -11,6 +13,8 @@ public class LuminaCommon {
     public static List<Long> miuGrantedUserID = new ArrayList<>();
 
     public static List<Long> allowListGroupID = new ArrayList<>();
+
+    public static Set<Long> signedSetUserID = new HashSet<>();
 
     public static boolean isGrantedUser(long presentUserID) {
 
@@ -23,6 +27,7 @@ public class LuminaCommon {
     public static boolean inMiuGrantedList(long presentUserID) {
 
         miuGrantedUserID.add(179223207L);
+        miuGrantedUserID.add(1527091631L);
 
         return miuGrantedUserID.contains(presentUserID);
     }

@@ -21,10 +21,10 @@ public class GroupPlugin_UserBrand extends BotPlugin {
         boolean isAtLuminaPresent = event.getRawMessage().contains("@LuminaBot") || event.getRawMessage().contains("<at qq=\"" + bot.getSelfId() + "\"/>");
         boolean containKeyword = event.getRawMessage().contains("设置头衔");
         //  outer和inner两种仅适用于对“设置头衔”的发起人进行设置头衔
-        String outerBrandPatternRegex = "<at qq=\"([1-9][0-9]{4,11})\"/>.?\\u8bbe\\u7f6e\\u5934\\u8854\\u003c([0-9a-zA-Z\\u4e00-\\u9fa5\\u30A0-\\u30FF\\u3040-\\u309F\\u31F0-\\u31FF]{1,6})\\u003e";
+        String outerBrandPatternRegex = "<at qq=\"([1-9][0-9]{4,11})\"/>\\s{0,5}\\u8bbe\\u7f6e\\u5934\\u8854\\s{0,5}\u003c([0-9a-zA-Z\\u4e00-\\u9fa5\\u30A0-\\u30FF\\u3040-\\u309F\\u31F0-\\u31FF]{1,6})\\u003e";
         String innerBrandPatternRegex = "\u003c[0-9a-zA-Z\\u4e00-\\u9fa5\\u30A0-\\u30FF\\u3040-\\u309F\\u31F0-\\u31FF]{1,6}\u003e";
-        //  适用于受信任的管理员对群主账号设置头衔
-        String getSelfBrandSetRegex = "<at qq=\"([1-9][0-9]{4,11})\"/>.?\\u8bbe\\u7f6e\\u5934\\u8854.?<[0-9a-zA-Z\\u4e00-\\u9fa5\\u30A0-\\u30FF\\u3040-\\u309F\\u31F0-\\u31FF]{1,6}>.?<at qq=\"([1-9][0-9]{4,11})\"/>";
+        //  适用于受信任的管理员对他人账号设置头衔
+        String getSelfBrandSetRegex = "<at qq=\"([1-9][0-9]{4,11})\"/>\\s{0,5}\\u8bbe\\u7f6e\\u5934\\u8854\\s{0,5}<[0-9a-zA-Z\\u4e00-\\u9fa5\\u30A0-\\u30FF\\u3040-\\u309F\\u31F0-\\u31FF]{1,6}>\\s{0,5}<at qq=\"([1-9][0-9]{4,11})\"/>";
         if(LuminaCommon.inGroupAllowList(event.getGroupId()) && isAtLuminaPresent && containKeyword) {
             //  初始化Pattern和Matcher
             Pattern outerBrandPattern = Pattern.compile(outerBrandPatternRegex);
@@ -33,11 +33,12 @@ public class GroupPlugin_UserBrand extends BotPlugin {
             Matcher getSelfBrandSetMatcher = getSelfBrandSetPattern.matcher(event.getRawMessage());
             //  对设置请求发起人鉴定
             if(getSelfBrandSetMatcher.find()) {
+                //  给别人头衔
                 String outerSTR, innerSTR, trueSTR, userIDOuterSTR, userIDInnerSTR, userIDSTR;
                 long userID = 0;
                 outerSTR = getSelfBrandSetMatcher.group();
                 Pattern innerBrandPattern = Pattern.compile(innerBrandPatternRegex);
-                Pattern atUserIDOuterPattern = Pattern.compile("\\u8bbe\\u7f6e\\u5934\\u8854.?\\u003c([0-9a-zA-Z\\u4e00-\\u9fa5\\u30A0-\\u30FF\\u3040-\\u309F\\u31F0-\\u31FF]{1,6})\\u003e.?<at qq=\"([1-9][0-9]{4,11})\"/>");
+                Pattern atUserIDOuterPattern = Pattern.compile("\\u8bbe\\u7f6e\\u5934\\u8854\\s{0,5}\\u003c([0-9a-zA-Z\\u4e00-\\u9fa5\\u30A0-\\u30FF\\u3040-\\u309F\\u31F0-\\u31FF]{1,6})\\u003e\\s{0,5}<at qq=\"([1-9][0-9]{4,11})\"/>");
                 Pattern atUserIDInnerPattern = Pattern.compile("<at qq=\"([1-9][0-9]{4,11})\"/>");
                 Pattern userIDPattern = Pattern.compile("[1-9][0-9]{4,11}");
                 Matcher innerBrandMatcher = innerBrandPattern.matcher(outerSTR);
@@ -65,6 +66,7 @@ public class GroupPlugin_UserBrand extends BotPlugin {
                     bot.sendGroupMsg(event.getGroupId(), "已将QQ号为[" + userID + "]的用户群头衔设置为 <" + trueSTR + ">", false);
                 }
             } else if(outerBrandMatcher.find()) {
+                //  给自己头衔
                 String outerSTR,innerSTR,trueSTR;
                 outerSTR = outerBrandMatcher.group();
                 Pattern innerBrandPattern = Pattern.compile(innerBrandPatternRegex);

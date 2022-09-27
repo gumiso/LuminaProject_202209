@@ -11,6 +11,7 @@ spring:
       - com.akiralumina.project.plugins.GroupPlugin_BanUserDisable
       - com.akiralumina.project.plugins.GroupPlugin_UserBrand
       - com.akiralumina.project.plugins.GroupPlugin_UserPoke
+      - com.akiralumina.project.plugins.GroupPlugin_UserSignIn
 
 server:
   # lorca launcher use this port to connect bot , DO NOT CHANGE IT !

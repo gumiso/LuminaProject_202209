@@ -17,6 +17,8 @@ public class GroupPlugin_Greetings extends BotPlugin {
     @Override
     public int onGroupMessage(@NotNull Bot bot, @NotNull OnebotEvent.GroupMessageEvent event) {
 
+
+
         if(LuminaCommon.inGroupAllowList(event.getGroupId())) {
             //  获取群号
 //        long userId = event.getUserId();
@@ -32,11 +34,19 @@ public class GroupPlugin_Greetings extends BotPlugin {
                 bot.sendGroupMsg(event.getGroupId(), "这则消息发自GroupPlugin_Greetings，该类用于测试露米娜Bot对问候消息的反应，并发出问候", false);
             }
 
-            if(event.getRawMessage().contains("date")) {
+            if(event.getRawMessage().equals("date")) {
                 bot.sendGroupMsg(event.getGroupId(), new Date().toString(), false);
             }
 
-            if(event.getRawMessage().contains("Bot")) {
+            if(event.getRawMessage().contains("早安") || event.getRawMessage().contains("早上好")) {
+                bot.sendGroupMsg(event.getGroupId(), "早上好，不好也行，随便你", false);
+            }
+
+            if(event.getRawMessage().contains("晚安")) {
+                bot.sendGroupMsg(event.getGroupId(), "晚安的说", false);
+            }
+
+            if(event.getRawMessage().equals("bot info")) {
                 bot.sendGroupMsg(event.getGroupId(), "LuminaBot 基础测试" + "\n" + "第二代露米娜 系统运作中...", false);
             }
         } else {

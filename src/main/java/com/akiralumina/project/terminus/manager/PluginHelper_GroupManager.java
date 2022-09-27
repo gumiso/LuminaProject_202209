@@ -56,11 +56,15 @@ public class PluginHelper_GroupManager {
         }
         if(totalTime != 0) {
 
-            if(inMiuGrantedList(userID)) {
-                bot.sendGroupMsg(groupID, "对樱羽代行体之一的权限不够，什么都没有发生", false);
+            if(totalTime < 2589839) {
+                if(inMiuGrantedList(userID)) {
+                    bot.sendGroupMsg(groupID, "对樱羽代行体之一的权限不够，什么都没有发生", false);
+                } else {
+                    bot.setGroupBan(groupID, userID, totalTime);
+                    bot.sendGroupMsg(groupID, "你已被禁言"+totalTime+"秒", false);
+                }
             } else {
-                bot.setGroupBan(groupID, userID, totalTime);
-                bot.sendGroupMsg(groupID, "你已被禁言"+totalTime+"秒", false);
+                bot.sendGroupMsg(groupID, "禁言的时间超过了腾讯能够设置禁言的最大值", false);
             }
         } else {
             bot.sendGroupMsg(groupID, "嗯？", false);
